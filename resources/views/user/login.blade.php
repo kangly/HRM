@@ -28,7 +28,6 @@
                 <div class="text-center p-t-20 p-b-20">
                     <span class="db"><img src="/assets/images/logo.png" alt="logo" /></span>
                 </div>
-                <!-- Form -->
                 <form class="form-horizontal m-t-20" id="login-form" method="post">
                     @csrf
                     <div class="row p-b-30">
@@ -43,7 +42,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                 </div>
-                                <input type="text" class="form-control form-control-lg" placeholder="密码" aria-label="Password" aria-describedby="basic-addon1" id="password" required="">
+                                <input type="password" class="form-control form-control-lg" placeholder="密码" aria-label="Password" aria-describedby="basic-addon1" id="password" required="">
                             </div>
                         </div>
                     </div>
@@ -79,7 +78,11 @@
             return false;
         }
         $.post('/user/login', {'_token':"{{ csrf_token() }}",'username':username,'password':password}, function(data) {
-           console.log(data);
+           if(data=='success'){
+                location.href = '/home/index';
+           }else{
+               alert('登陆失败！');
+           }
         });
     }
 </script>
