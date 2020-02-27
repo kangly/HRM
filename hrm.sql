@@ -1,4 +1,5 @@
 ﻿DROP TABLE IF EXISTS `user`;
+
 CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '员工表ID',
   `username` varchar(50) NOT NULL DEFAULT '' COMMENT '登录邮箱',
