@@ -21,21 +21,25 @@ class LoginController extends Controller
     {
     	$username = $request->input('username');
     	$password = $request->input('password');
-
-        $map = [
-            'username' => $username,
-            'password' => md5($password),
-            'is_disable' => 0,
-            'is_dimission' => 0
-        ];
-
-        $user = User::where($map)->first('id','username');
-
-        if($user){
-            session(['user'=>$user]);
-            echo 'success';
+    	if($username && $password){
+            $map = [
+                'username' => $username,
+                'is_disable' => 0,
+                'is_dimission' => 0
+            ];
+            $user = User::where($map)->first();
+            if($user){
+                if($user['password']==md5($password)){
+                    session(['user'=>$user]);
+                    echo 'success';
+                }else{
+                    echo '密码错误！';
+                }
+            }else{
+                echo '用户不存在！';
+            }
         }else{
-            echo 'error';
+            echo '用户名或密码为空！';
         }
     }
 }

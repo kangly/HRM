@@ -63,25 +63,29 @@
 <script src="/assets/libs/jquery/dist/jquery.min.js"></script>
 <script src="/assets/libs/popper.js/dist/umd/popper.min.js"></script>
 <script src="/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/assets/extra-libs/layer/layer.js"></script>
 <script type="text/javascript">
     $('[data-toggle="tooltip"]').tooltip();
     $(".preloader").fadeOut();
     function go_login(){
         var username = $.trim($('#username').val());
         if(username==''){
-            alert('用户名不能为空！');
+            layer.msg('用户名不能为空！',{icon:"5",time:1000});
             return false;
         }
         var password = $.trim($('#password').val());
         if(password==''){
-            alert('密码不能为空！');
+            layer.msg('密码不能为空！',{icon:"5",time:1000});
             return false;
         }
         $.post('/user/login', {'_token':"{{ csrf_token() }}",'username':username,'password':password}, function(data) {
            if(data=='success'){
-                location.href = '/home/index';
+               layer.msg('登陆成功！',{icon:"6",time:1000});
+               setTimeout(function(){
+                   location.href = '/home/index';
+               },1000)
            }else{
-               alert('登陆失败！');
+               layer.msg(data,{icon:"5",time:1000});
            }
         });
     }

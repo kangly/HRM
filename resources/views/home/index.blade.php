@@ -22,17 +22,19 @@
 <script src="/assets/libs/jquery/dist/jquery.min.js"></script>
 <script src="/assets/libs/popper.js/dist/umd/popper.min.js"></script>
 <script src="/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/assets/extra-libs/layer/layer.js"></script>
 <script type="text/javascript">
     function _signOut(){
-        if(confirm('确认登出吗？')){
+        layer.confirm('确认登出吗？',{icon:3,title:'系统提示'},function(index){
             $.get('/home/sign_out', {}, function(data) {
                 if(data=='success'){
                     location.href = '/';
                 }else{
-                    alert('操作失败！');
+                    layer.msg('操作失败！',{icon:"5",time:1000});
                 }
             });
-        }
+            layer.close(index);
+        });
     }
 </script>
 </body>
