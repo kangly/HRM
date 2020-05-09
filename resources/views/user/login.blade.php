@@ -9,19 +9,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
     <title>RM admin template</title>
     <link href="/assets/css/style.min.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 <div class="main-wrapper">
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
     <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
         <div class="auth-box bg-dark border-top border-secondary">
             <div id="login-div">
@@ -60,13 +50,9 @@
         </div>
     </div>
 </div>
-<script src="/assets/libs/jquery/dist/jquery.min.js"></script>
-<script src="/assets/libs/popper.js/dist/umd/popper.min.js"></script>
-<script src="/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/assets/extra-libs/layer/layer.js"></script>
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/layer/layer.js"></script>
 <script type="text/javascript">
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".preloader").fadeOut();
     function go_login(){
         var username = $.trim($('#username').val());
         if(username==''){
@@ -78,11 +64,11 @@
             layer.msg('密码不能为空！',{icon:"5",time:1000});
             return false;
         }
-        $.post('/user/login', {'_token':"{{ csrf_token() }}",'username':username,'password':password}, function(data) {
+        $.post("{{ url('/user/login') }}", {'_token':"{{ csrf_token() }}",'username':username,'password':password}, function(data) {
            if(data=='success'){
                layer.msg('登陆成功！',{icon:"6",time:1000});
                setTimeout(function(){
-                   location.href = '/home/index';
+                   location.href = "{{ url('/home/index') }}";
                },1000)
            }else{
                layer.msg(data,{icon:"5",time:1000});

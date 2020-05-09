@@ -17,4 +17,5 @@ Route::post('/user/login', 'User\LoginController@login');
 Route::middleware(['check.login'])->group(function () {
     Route::get('/home/index', 'Home\IndexController@Index');
     Route::get('/home/sign_out', 'Home\IndexController@sign_out');
+    Route::get('/cdd/index', 'Cdd\IndexController@index');
 });
