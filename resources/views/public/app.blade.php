@@ -5,6 +5,7 @@
     <meta name="robots" content="noindex,nofollow"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -26,6 +27,11 @@
             if(url)
                 setTimeout("location.href = '"+ url + "'", 500);
         };
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         function _signOut(){
             layer.confirm('确认登出吗？',{icon:3,title:'系统提示'},function(index){
                 $.get("{{ url('/home/sign_out') }}", {}, function(data) {
@@ -159,7 +165,7 @@
                             <li class="sidebar-item m-l-5"><a href="{{ url('/cdd/index') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 候选人列表 </span></a></li>
                         </ul>
                     </li>
-                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-group"></i><span class="hide-menu">公司管理 </span></a>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple-plus"></i><span class="hide-menu">公司管理 </span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item m-l-5"><a href="{{ url('/company/index') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 公司列表 </span></a></li>
                             <li class="sidebar-item m-l-5"><a href="{{ url('/company/job') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 职位列表 </span></a></li>

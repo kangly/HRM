@@ -1,6 +1,6 @@
-﻿DROP TABLE IF EXISTS `user`;
+﻿DROP TABLE IF EXISTS `hrm_user`;
 
-CREATE TABLE `user` (
+CREATE TABLE `hrm_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '员工表ID',
   `username` varchar(50) NOT NULL DEFAULT '' COMMENT '登录邮箱',
   `password` char(32) NOT NULL DEFAULT '' COMMENT '登录密码',
@@ -30,4 +30,44 @@ CREATE TABLE `user` (
   KEY `idx_mobile` (`mobile`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` VALUES (1,'kangly@hrm.com','e19d5cd5af0378da05f63f891c7467af','kangly','小康','15227166666','','',0,NULL,'','','','','','','','',0,0,0,'2020-02-02 10:20:19',NULL,'2020-05-02');
+INSERT INTO `hrm_user` VALUES (1,'kangly@hrm.com','e19d5cd5af0378da05f63f891c7467af','kangly','小康','15227166666','','',0,NULL,'','','','','','','','',0,0,0,'2020-02-02 10:20:19',NULL,'2020-05-02');
+
+DROP TABLE IF EXISTS `hrm_candidate`;
+
+CREATE TABLE `hrm_candidate` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '候选人表id',
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT '姓名',
+  `pinyin` varchar(20) NOT NULL DEFAULT '' COMMENT '姓名的拼音首字母',
+  `quanpin` varchar(50) NOT NULL DEFAULT '' COMMENT '姓名的拼音全拼',
+  `phone` varchar(11) NOT NULL DEFAULT '' COMMENT '电话',
+  `email` varchar(100) NOT NULL DEFAULT '' COMMENT '邮箱',
+  `qq` varchar(50) NOT NULL DEFAULT '' COMMENT 'qq号',
+  `wx` varchar(200) NOT NULL DEFAULT '' COMMENT '微信号',
+  `avatar` varchar(300) NOT NULL DEFAULT '' COMMENT '候选人照片',
+  `sex` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '性别,0不详,1女,2男',
+  `birthday` date DEFAULT NULL COMMENT '出生日期',
+  `degree` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '学历,0不详,1小学,2初中,3高中,4中专,5大专,6本科,7硕士,8博士',
+  `marital_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '婚姻状况,0不详,1未婚,2已婚无子,3已婚有子,4离婚',
+  `province` varchar(50) NOT NULL DEFAULT '' COMMENT '居住地省',
+  `city` varchar(50) NOT NULL DEFAULT '' COMMENT '居住地市',
+  `area1` varchar(50) NOT NULL DEFAULT '' COMMENT '居住地地区1',
+  `area2` varchar(50) NOT NULL DEFAULT '' COMMENT '居住地地区2',
+  `address` varchar(50) NOT NULL DEFAULT '' COMMENT '居住地详细地址',
+  `nationality` varchar(50) NOT NULL DEFAULT '' COMMENT '国籍',
+  `id_card` varchar(32) NOT NULL DEFAULT '' COMMENT '身份证号',
+  `self_assessment` varchar(300) DEFAULT '' COMMENT '自我评价',
+  `language` varchar(100) NOT NULL DEFAULT '' COMMENT '语言能力',
+  `level1` varchar(50) NOT NULL DEFAULT '' COMMENT '工作类型1',
+  `level2` varchar(50) NOT NULL DEFAULT '' COMMENT '工作类型2',
+  `level3` varchar(50) NOT NULL DEFAULT '' COMMENT '工作类型3',
+  `cdd_type` varchar(1) NOT NULL DEFAULT '' COMMENT '候选人类型:A/B/C/D/E',
+  `reg_type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '注册类型,0后台录入',
+  `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建人id',
+  `username` varchar(50) NOT NULL DEFAULT '' COMMENT '创建人姓名',
+  `create_time` datetime DEFAULT NULL COMMENT '提交时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_name` (`name`),
+  KEY `idx_phone` (`phone`),
+  KEY `idx_email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
