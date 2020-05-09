@@ -31,7 +31,7 @@ class IndexController extends Controller
     {
         $id = $request->input('id');
 
-        return view('cdd.add_cdd');
+        return view('cdd.add_cdd',['id'=>$id]);
     }
 
     /**

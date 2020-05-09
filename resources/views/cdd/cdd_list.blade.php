@@ -1,7 +1,7 @@
 <div class="card">
     <div class="table-responsive">
         <div class="mb-2">
-            <button type="button" class="btn btn-success btn-sm" onclick="addCdd(0)">新增候选人</button>
+            <button type="button" class="btn btn-success btn-sm" onclick="editCdd(0)">新增候选人</button>
         </div>
         <table class="table table-bordered table-striped table-sm table-hover text-center">
             <thead class="thead-light">
@@ -27,7 +27,10 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td>
+                    <i class="fas fa-edit cursor-pointer" onclick="editCdd(1)"></i>
+                    <i class="fas fa-trash cursor-pointer" onclick="deleteCdd(1)"></i>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -39,10 +42,14 @@
         _p_a_load("{{ url('/cdd/cddList') }}",'tab1');
     }
 
-    function addCdd(id){
+    function editCdd(id){
         var url = '/cdd/addCdd?id='+id;
         _add_movable_popup('addCdd','新增候选人',url,'','',function(){
             cddList();
         });
+    }
+    
+    function deleteCdd(id){
+        
     }
 </script>
