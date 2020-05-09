@@ -154,9 +154,25 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/home/index') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">工作台</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">候选人管理 </span></a>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">候选人管理 </span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item m-l-5"><a href="{{ url('/cdd/index') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 候选人列表 </span></a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-group"></i><span class="hide-menu">公司管理 </span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item m-l-5"><a href="{{ url('/company/index') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 公司列表 </span></a></li>
+                            <li class="sidebar-item m-l-5"><a href="{{ url('/company/job') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 职位列表 </span></a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">员工管理 </span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item m-l-5"><a href="{{ url('/staff/index') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 员工列表 </span></a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">系统管理 </span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item m-l-5"><a href="{{ url('/system/index') }}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> 系统设置 </span></a></li>
                         </ul>
                     </li>
                 </ul>

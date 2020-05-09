@@ -18,4 +18,8 @@ Route::middleware(['check.login'])->group(function () {
     Route::get('/home/index', 'Home\IndexController@Index');
     Route::get('/home/sign_out', 'Home\IndexController@sign_out');
     Route::get('/cdd/index', 'Cdd\IndexController@index');
+    Route::get('/company/index', 'Company\IndexController@index');
+    Route::get('/company/job', 'Company\IndexController@job');
+    Route::get('/staff/index', 'Staff\IndexController@index');
+    Route::get('/system/index', 'System\IndexController@index');
 });
