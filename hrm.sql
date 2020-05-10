@@ -47,7 +47,7 @@ CREATE TABLE `hrm_candidate` (
   `sex` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '性别,0不详,1女,2男',
   `birthday` date DEFAULT NULL COMMENT '出生日期',
   `degree` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '学历,0不详,1小学,2初中,3高中,4中专,5大专,6本科,7硕士,8博士',
-  `marital_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '婚姻状况,0不详,1未婚,2已婚无子,3已婚有子,4离婚',
+  `marital_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '婚姻状况,0不详,1未婚,2已婚未孕,3已婚已孕,4离婚',
   `province` varchar(50) NOT NULL DEFAULT '' COMMENT '居住地省',
   `city` varchar(50) NOT NULL DEFAULT '' COMMENT '居住地市',
   `area1` varchar(50) NOT NULL DEFAULT '' COMMENT '居住地地区1',

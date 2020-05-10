@@ -21,6 +21,7 @@ Route::middleware(['check.login'])->group(function () {
     Route::post('/cdd/cddList', 'Cdd\IndexController@cddList');
     Route::get('/cdd/addCdd', 'Cdd\IndexController@addCdd');
     Route::post('/cdd/saveCdd', 'Cdd\IndexController@saveCdd');
+    Route::post('/cdd/deleteCdd', 'Cdd\IndexController@deleteCdd');
     Route::get('/company/index', 'Company\IndexController@index');
     Route::get('/company/job', 'Company\IndexController@job');
     Route::get('/staff/index', 'Staff\IndexController@index');

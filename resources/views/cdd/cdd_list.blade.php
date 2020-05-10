@@ -43,13 +43,31 @@
     }
 
     function editCdd(id){
-        var url = '/cdd/addCdd?id='+id;
-        _add_movable_popup('addCdd','新增候选人',url,'','',function(){
+        _add_movable_popup('addCdd','新增候选人','/cdd/addCdd?id='+id,'','',function(){
             cddList();
         });
     }
     
     function deleteCdd(id){
-        
+        _systemConfirm('确认删除该候选人吗？',function(){
+            if(op_start()){
+                $.ajax({
+                    dataType:"text",
+                    type: "post",
+                    url: "{{ url('/cdd/deleteCdd') }}",
+                    data: {id:id},
+                    success: function(res){
+                        if(res>0){
+                            cddList();
+                            tip_success('删除成功！');
+                        }else{
+                            tip_error('删除失败！',3);
+                        }
+                    }
+                }).always(function(){
+                    op_end();
+                });
+            }
+        });
     }
 </script>

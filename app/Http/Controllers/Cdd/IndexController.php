@@ -52,4 +52,17 @@ class IndexController extends Controller
             echo 'insert';
         }
     }
+
+    /**
+     * @param Request $request
+     */
+    public function deleteCdd(Request $request)
+    {
+        $id = $request->input('id');
+
+        if($id>0)
+        {
+            echo $id;
+        }
+    }
 }
