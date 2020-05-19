@@ -100,31 +100,33 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label"><span class="text-danger text-danger-hide">*</span> 省市</label>
-                <div class="col-sm-3">
-                    <select class="form-control" name="province" id="province">
-                        <option value="" selected>请选择</option>
-                    </select>
+            <div id="distpicker_area">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><span class="text-danger text-danger-hide">*</span> 省市</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" name="province" id="province">
+                            <option value="" selected>请选择</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" name="city" id="city">
+                            <option value="" selected>请选择</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <select class="form-control" name="city" id="city">
-                        <option value="" selected>请选择</option>
-                    </select>
-                </div>
-            </div>
 
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label"><span class="text-danger text-danger-hide">*</span> 地区</label>
-                <div class="col-sm-3">
-                    <select class="form-control" name="area1" id="area1">
-                        <option value="" selected>请选择</option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <select class="form-control" name="area2" id="area2">
-                        <option value="" selected>请选择</option>
-                    </select>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><span class="text-danger text-danger-hide">*</span> 地区</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" name="area1" id="area1">
+                            <option value="" selected>请选择</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" name="area2" id="area2">
+                            <option value="" selected>请选择</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -221,6 +223,13 @@
             autoclose: true,//自动关闭
             minView: 2,//不显示小时分视图
             format: "yyyy-mm-dd"//日期显示格式
+        });
+
+        $('#distpicker_area').distpicker({
+            province: '',
+            city: '',
+            district: '',
+            area: ''
         });
     });
 

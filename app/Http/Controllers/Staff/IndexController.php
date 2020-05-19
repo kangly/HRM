@@ -11,4 +11,9 @@ class IndexController extends Controller
     {
         return view('staff.index');
     }
+
+    public function staffList()
+    {
+        return view('staff.staff_list');
+    }
 }

@@ -23,7 +23,11 @@ Route::middleware(['check.login'])->group(function () {
     Route::post('/cdd/saveCdd', 'Cdd\IndexController@saveCdd');
     Route::post('/cdd/deleteCdd', 'Cdd\IndexController@deleteCdd');
     Route::get('/company/index', 'Company\IndexController@index');
-    Route::get('/company/job', 'Company\IndexController@job');
+    Route::post('/company/companyList', 'Company\IndexController@companyList');
+    Route::get('/company/job', 'Company\JobController@index');
+    Route::post('/company/jobList', 'Company\JobController@jobList');
     Route::get('/staff/index', 'Staff\IndexController@index');
+    Route::post('/staff/staffList', 'Staff\IndexController@staffList');
     Route::get('/system/index', 'System\IndexController@index');
+    Route::post('/system/jobType', 'System\IndexController@jobType');
 });

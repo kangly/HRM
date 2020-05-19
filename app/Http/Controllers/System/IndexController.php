@@ -11,4 +11,9 @@ class IndexController extends Controller
     {
         return view('system.index');
     }
+
+    public function jobType()
+    {
+        return view('system.job_type');
+    }
 }

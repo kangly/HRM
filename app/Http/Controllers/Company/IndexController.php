@@ -12,8 +12,8 @@ class IndexController extends Controller
         return view('company.index');
     }
 
-    public function job()
+    public function companyList()
     {
-        return view('company.job');
+        return view('company.company_list');
     }
 }
